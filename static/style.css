@@ -1,0 +1,586 @@
+/* ==========================================================================
+   DUT-China · iGEM 2026 — Dark Scientific theme
+   Design tokens (see DESIGN.md) + Bootstrap dark overrides + components
+   ========================================================================== */
+
+/* ---------- 0. Fonts (self-hosted, iGEM-compliant) ----------
+   Deploy note: these font files MUST be uploaded to static.igem.wiki via the
+   uploads tool and the src URLs below switched to
+   https://static.igem.wiki/<path>/<file>.woff2 before the final release. */
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/ibm-plex-sans-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/ibm-plex-sans-latin-500-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/ibm-plex-sans-latin-700-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/ibm-plex-mono-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/ibm-plex-mono-latin-700-normal.woff2") format("woff2");
+}
+
+/* ---------- 1. Design tokens ---------- */
+:root {
+  /* color — light multi-tone (Marburg / WageningenUR inspired) */
+  --bg: #f6f8fa;
+  --bg-2: #eef1f5;
+  --surface: #ffffff;
+  --surface-2: #f2f5f8;
+  --border: #d9dfe7;
+  --text: #1a2330;
+  --muted: #5b6778;
+  --accent: #0b7ac2;
+  --accent-strong: #095e99;
+  --accent-dim: rgba(11, 122, 194, 0.10);
+  --info: #0b7ac2;
+  --warning: #b45309;
+  --danger: #c02f2f;
+  --success: #178a55;
+
+  /* multi-tone block accents */
+  --tone-coral: #e4655a;
+  --tone-coral-bg: #fdeceb;
+  --tone-amber: #d99a2b;
+  --tone-amber-bg: #fdf3e0;
+  --tone-green: #2e9e6b;
+  --tone-green-bg: #e8f6ef;
+  --tone-violet: #7a5cc0;
+  --tone-violet-bg: #f0ecfb;
+  --tone-cyan: #0ea5a9;
+  --tone-cyan-bg: #e2f6f6;
+
+  /* type */
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* space */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 40px;
+  --space-6: 64px;
+
+  /* shape */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* layout */
+  --nav-h: 64px;
+}
+
+/* ---------- 2. Bootstrap light overrides ---------- */
+[data-bs-theme="light"] {
+  --bs-body-bg: var(--bg);
+  --bs-body-color: var(--text);
+  --bs-secondary-color: var(--muted);
+  --bs-secondary-bg: var(--bg-2);
+  --bs-border-color: var(--border);
+  --bs-link-color: var(--accent);
+  --bs-link-hover-color: var(--accent-strong);
+  --bs-emphasis-color: var(--text);
+  --bs-tertiary-color: var(--muted);
+  --bs-card-bg: var(--surface);
+  --bs-card-border-color: var(--border);
+  --bs-code-color: var(--accent-strong);
+  --bs-success: var(--success);
+  --bs-info: var(--info);
+  --bs-warning: var(--warning);
+  --bs-danger: var(--danger);
+}
+
+/* ---------- 3. Base ---------- */
+body {
+  padding-top: var(--nav-h);
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  letter-spacing: -0.01em;
+}
+
+.font-mono, .nav-tagline, .hero-kicker, .section-index, .card-tag, .footer-brand {
+  font-feature-settings: "tnum" 1;
+}
+
+a { color: var(--accent); }
+a:hover { color: var(--accent-strong); }
+
+code, kbd, pre, .font-mono {
+  font-family: var(--font-mono);
+}
+
+.text-muted, .text-secondary { color: var(--muted) !important; }
+
+hr {
+  border-color: var(--border);
+  opacity: 1;
+}
+
+::selection {
+  background: var(--accent-dim);
+  color: var(--accent-strong);
+}
+
+/* ---------- 4. Navigation ---------- */
+.navbar {
+  min-height: var(--nav-h);
+  background: rgba(246, 248, 250, 0.92);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text) !important;
+}
+
+.navbar-brand .brand-accent {
+  color: var(--accent);
+}
+
+.navbar .nav-link {
+  color: var(--text);
+  opacity: 0.85;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  position: relative;
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-2);
+  transition: color 0.15s ease, opacity 0.15s ease;
+}
+
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: var(--space-3);
+  right: var(--space-3);
+  bottom: 6px;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease-out;
+}
+
+.navbar .nav-link:hover {
+  opacity: 1;
+  color: var(--text);
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.navbar .nav-link.active,
+.navbar .nav-item.dropdown.show > .nav-link {
+  color: var(--accent-strong);
+  opacity: 1;
+}
+
+/* top-level CTA in navbar (WageningenUR-style) */
+.navbar .nav-cta {
+  text-transform: none;
+  letter-spacing: 0.02em;
+  padding: 0.45rem 1.05rem;
+  margin-left: var(--space-2);
+  font-size: 0.85rem;
+}
+
+/* dropdown menu */
+.navbar .dropdown-menu {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.16);
+  margin-top: 0;
+  padding: var(--space-2);
+}
+
+.navbar .dropdown-item {
+  color: var(--text);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+}
+
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus {
+  background: var(--bg-2);
+  color: var(--text);
+}
+
+/* menu tagline: mono, small, muted */
+.nav-tagline {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  line-height: 1.3;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+}
+
+.navbar .dropdown-item:hover .nav-tagline,
+.navbar .dropdown-item:focus .nav-tagline {
+  color: var(--accent);
+}
+
+/* ---------- 5. Hero ---------- */
+.hero {
+  position: relative;
+  padding: var(--space-6) 0 var(--space-5);
+  margin-bottom: var(--space-5);
+  background:
+    radial-gradient(900px 380px at 88% -10%, rgba(228, 101, 90, 0.16), transparent 60%),
+    radial-gradient(700px 320px at 12% 120%, rgba(46, 158, 107, 0.14), transparent 60%),
+    radial-gradient(620px 300px at 55% 8%, rgba(14, 165, 169, 0.12), transparent 60%),
+    var(--bg-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.hero .hero-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-3);
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  margin-bottom: var(--space-3);
+}
+
+.hero .lead {
+  color: var(--muted);
+  max-width: 720px;
+}
+
+.hero .hero-cta {
+  margin-top: var(--space-4);
+}
+
+/* ---------- 6. Buttons ---------- */
+.btn-accent {
+  --bs-btn-bg: var(--accent);
+  --bs-btn-border-color: var(--accent);
+  --bs-btn-color: #071018;
+  --bs-btn-hover-bg: var(--accent-strong);
+  --bs-btn-hover-border-color: var(--accent-strong);
+  --bs-btn-hover-color: #071018;
+  --bs-btn-active-bg: var(--accent-strong);
+  --bs-btn-active-border-color: var(--accent-strong);
+  --bs-btn-active-color: #071018;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 1.25rem;
+}
+
+.btn-outline-accent {
+  --bs-btn-color: var(--accent);
+  --bs-btn-border-color: var(--accent);
+  --bs-btn-hover-bg: var(--accent-dim);
+  --bs-btn-hover-color: var(--accent-strong);
+  --bs-btn-hover-border-color: var(--accent-strong);
+  --bs-btn-active-bg: var(--accent-dim);
+  --bs-btn-active-color: var(--accent-strong);
+  --bs-btn-active-border-color: var(--accent-strong);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  padding: 0.6rem 1.25rem;
+}
+
+/* ---------- 7. Cards ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.card .card-title {
+  font-weight: 600;
+}
+
+.card .card-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* section header with mono index */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.section-head .section-index {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+.section-head h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.section-head hr {
+  flex: 1;
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 0 0 0 var(--space-3);
+}
+
+/* multi-tone section blocks */
+.tone-block {
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+.tone-block .section-head {
+  margin-bottom: var(--space-3);
+}
+
+.tone-block .section-head .section-index,
+.tone-block .section-head h2 {
+  color: inherit;
+}
+
+.tone-block .section-head hr {
+  border-top-color: currentColor;
+  opacity: 0.3;
+}
+
+.tone-block p,
+.tone-block li {
+  color: var(--text);
+}
+
+.tone-coral   { background: var(--tone-coral-bg);   color: var(--tone-coral); }
+.tone-amber   { background: var(--tone-amber-bg);   color: var(--tone-amber); }
+.tone-green   { background: var(--tone-green-bg);   color: var(--tone-green); }
+.tone-violet  { background: var(--tone-violet-bg);  color: var(--tone-violet); }
+.tone-cyan    { background: var(--tone-cyan-bg);    color: var(--tone-cyan); }
+
+/* ---------- 7b. Page table of contents (on-page anchor follow) ---------- */
+.page-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  margin: var(--space-4) 0 var(--space-5);
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.page-toc .toc-label {
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-right: var(--space-1);
+}
+
+.page-toc a {
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.page-toc a:hover {
+  color: var(--accent-strong);
+  border-bottom-color: var(--accent);
+}
+
+/* content page sections */
+.content-section {
+  margin-top: var(--space-5);
+  scroll-margin-top: calc(var(--nav-h) + 16px);
+}
+
+.content-section h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.content-section .section-lead {
+  color: var(--muted);
+  max-width: 720px;
+}
+
+/* ---------- 8. Callout (dark variants) ---------- */.bd-callout {
+  padding: var(--space-3) var(--space-4);
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-4);
+  border: 1px solid var(--border);
+  border-left-width: 0.25rem;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+
+.bd-callout h4 { margin-bottom: var(--space-3); }
+.bd-callout p:last-child { margin-bottom: 0; }
+.bd-callout code { border-radius: var(--radius-sm); }
+.bd-callout + .bd-callout { margin-top: calc(-1 * var(--space-1)); }
+
+.bd-callout-info    { border-left-color: var(--info); }
+.bd-callout-warning { border-left-color: var(--warning); }
+.bd-callout-danger  { border-left-color: var(--danger); }
+
+/* ---------- 9. Blockquote / references ---------- */
+blockquote {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-4);
+  color: var(--muted);
+}
+
+/* ---------- 10. Tables ---------- */
+.table {
+  --bs-table-color: var(--text);
+  --bs-table-bg: transparent;
+  --bs-table-border-color: var(--border);
+  --bs-table-striped-bg: rgba(15, 23, 42, 0.035);
+  --bs-table-hover-bg: var(--bg-2);
+}
+
+.table thead th {
+  background: var(--bg-2);
+  border-bottom-width: 1px;
+  font-weight: 600;
+}
+
+/* ---------- 11. Footer (dark anchor on light page, Marburg/WageningenUR style) ---------- */
+footer {
+  background: #1f2a3d;
+  border-top: 1px solid #2c3a52;
+  color: #b8c2d0;
+}
+
+footer a {
+  color: #e8eef5;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #7fd6ff;
+  text-decoration: underline;
+}
+
+footer h4 {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+footer .footer-brand {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7fd6ff;
+}
+
+/* ---------- 12. Motion (progressive enhancement) ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+
+  .card, .hero, .section-head {
+    animation: rise 0.4s ease-out both;
+  }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- 13. Responsive ---------- */
+@media (max-width: 991.98px) {
+  .navbar {
+    background: rgba(246, 248, 250, 0.98);
+  }
+
+  .navbar .dropdown-menu {
+    border: 0;
+    border-radius: 0;
+    padding-left: var(--space-3);
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  body { padding-top: 60px; }
+  .hero { padding-top: var(--space-5); }
+}

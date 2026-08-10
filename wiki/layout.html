@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://static.igem.wiki/common/icons/favicons/igem-2022.svg"/>
+    <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
+
+    <!-- Bootstrap CSS -->
+    <link href="{{ url_for('static', filename = 'bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet">
+
+    <title>{% block title %}{% endblock %} | DUT-China - iGEM 2026</title>
+
+</head>
+<body>
+  <!--
+    THESIS: 浅色多色调 wiki —— 内容即证据。拒绝模板化欢迎语首屏；首屏立即表达"这是 DUT-China 2026 的合成生物学项目"及其问题/方案/证据入口。
+    OWN-WORLD: 中性浅底 #f6f8fa + 青蓝主色 #0b7ac2 + 多色调区块（珊瑚/琥珀/绿/紫/青）+ mono 标签/编号/副标题；IBM Plex 本地字体；深蓝灰 footer 锚点。
+    STORY: 评委与访客一屏之内知道项目是谁、做什么、下一步去哪（导航/CTA），并能在长页面中定位证据。
+    FIRST VIEWPORT: hero —— mono kicker（项目编号占位）→ 大标题（项目名占位）→ 副标题 → 强调色 CTA（占位）；hero 背景为珊瑚/绿/青多色淡彩。
+    FORM: 浅色多色调；方向由用户钉住（ask 决策，2026 赛季），主色青蓝 + 多色区块，素材后期由用户提供。
+    FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+  -->
+  <!-- Navigation -->
+  {% include 'menu.html' %}
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <p class="hero-kicker">{% block kicker %}DUT-China · iGEM 2026{% endblock %}</p>
+      <h1>{% block hero_title %}{{ self.title() }}{% endblock %}</h1>
+      <p class="lead">{% block lead %}{% endblock %}</p>
+      <div class="hero-cta">{% block hero_cta %}{% endblock %}</div>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <main class="container">
+    {% block page_content %}{% endblock %}
+  </main>
+
+  <!-- Footer: MUST mention license AND have a link to team wiki's repository on gitlab.igem.org -->
+  {% include 'footer.html' %}
+
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="{{ url_for('static', filename = 'bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>
