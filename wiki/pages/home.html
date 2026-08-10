@@ -1,0 +1,125 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block hero_title %}DUT-China · iGEM 2026{% endblock %}
+
+{% block kicker %}Synthetic Biology · iGEM 2026{% endblock %}
+
+{% block lead %}
+DUT-China 2026 — a synthetic biology project from Dalian University of Technology.
+Problem, solution, and evidence will be documented here as the season progresses.
+{% endblock %}
+
+{% block hero_cta %}
+<a class="btn btn-accent me-2" href="{{ url_for('pages', page='description') }}">Explore the Project</a>
+<a class="btn btn-outline-accent" href="{{ url_for('pages', page='team') }}">Meet the Team</a>
+{% endblock %}
+
+{% block page_content %}
+
+<div class="bd-callout bd-callout-warning">
+  <h4>Under Construction</h4>
+  <p>This wiki is in its early stage. Navigation, layout, and the dark scientific theme are live; project content, data, and visual assets will be added by the team in the coming weeks.</p>
+</div>
+
+<div class="tone-block tone-coral mt-5">
+  <div class="section-head">
+    <span class="section-index">01</span>
+    <h2>Problem</h2>
+    <hr />
+  </div>
+  <p class="mb-0">Our project tackles a real-world challenge. <span class="text-muted">[Problem statement pending — team materials will be provided.]</span></p>
+</div>
+
+<div class="tone-block tone-cyan mt-4">
+  <div class="section-head">
+    <span class="section-index">02</span>
+    <h2>Solution</h2>
+    <hr />
+  </div>
+  <p class="mb-0">We are engineering biology to address it. <span class="text-muted">[Solution description pending — team materials will be provided.]</span></p>
+</div>
+
+<div class="tone-block tone-green mt-4">
+  <div class="section-head">
+    <span class="section-index">03</span>
+    <h2>Evidence</h2>
+    <hr />
+  </div>
+  <p class="mb-0">Experiments, models, and human practices will be shared with full traceability — no data is invented before it exists. <span class="text-muted">[Results pending.]</span></p>
+</div>
+
+<div class="tone-block tone-violet mt-4">
+  <div class="section-head">
+    <span class="section-index">04</span>
+    <h2>Explore</h2>
+    <hr />
+  </div>
+  <p class="mb-0">Jump straight into the sections judges and visitors look at first.</p>
+</div>
+
+<div class="row g-4">
+  <div class="col-md-6 col-lg-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <span class="card-tag">Project</span>
+        <h5 class="card-title mt-2">Description</h5>
+        <p class="card-text text-muted">What we build and why.</p>
+        <a class="btn btn-outline-accent btn-sm" href="{{ url_for('pages', page='description') }}">Open</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <span class="card-tag">Project</span>
+        <h5 class="card-title mt-2">Engineering</h5>
+        <p class="card-text text-muted">Design · Build · Test · Learn cycles.</p>
+        <a class="btn btn-outline-accent btn-sm" href="{{ url_for('pages', page='engineering') }}">Open</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <span class="card-tag">Project</span>
+        <h5 class="card-title mt-2">Results</h5>
+        <p class="card-text text-muted">Data and evidence.</p>
+        <a class="btn btn-outline-accent btn-sm" href="{{ url_for('pages', page='results') }}">Open</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <span class="card-tag">Dry Lab</span>
+        <h5 class="card-title mt-2">Model</h5>
+        <p class="card-text text-muted">In silico predictions.</p>
+        <a class="btn btn-outline-accent btn-sm" href="{{ url_for('pages', page='model') }}">Open</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <span class="card-tag">Engagement</span>
+        <h5 class="card-title mt-2">Human Practices</h5>
+        <p class="card-text text-muted">Insights that shape our project.</p>
+        <a class="btn btn-outline-accent btn-sm" href="{{ url_for('pages', page='human-practices') }}">Open</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <span class="card-tag">Team</span>
+        <h5 class="card-title mt-2">Team</h5>
+        <p class="card-text text-muted">Meet the people behind the project.</p>
+        <a class="btn btn-outline-accent btn-sm" href="{{ url_for('pages', page='team') }}">Open</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
