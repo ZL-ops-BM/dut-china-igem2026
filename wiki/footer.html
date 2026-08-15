@@ -1,33 +1,38 @@
-<footer class="footer py-5 mt-5">
-  <div class="container">
-    <div class="row mb-4">
-      <div class="col-lg-6 col-xs-12">
-        <p class="footer-brand mb-2">DUT-China · iGEM 2026</p>
-        <p class="mb-0">Synthetic biology from Dalian University of Technology. This wiki documents our project, evidence, and engineering journey for the iGEM 2026 season.</p>
+<footer class="site-footer">
+  <div class="site-shell">
+    <div class="site-footer__lead">
+      <a class="site-footer__brand" href="{{ url_for('home') }}">DUT-CHINA <span>2026</span></a>
+      <p>Engineering biology, documented with care.</p>
+    </div>
+
+    <div class="site-footer__navigation">
+      <div>
+        <h2>Project</h2>
+        <a href="{{ url_for('pages', page='description') }}">Description</a>
+        <a href="{{ url_for('pages', page='engineering') }}">Engineering</a>
+        <a href="{{ url_for('pages', page='results') }}">Results</a>
       </div>
-      <div class="col-lg-3 col-xs-12">
-        <h4 class="mt-lg-0 mt-sm-3">Wiki</h4>
-          <ul class="m-2 p-2 list-unstyled">
-            <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="{{ url_for('pages', page='description') }}">Description</a></li>
-            <li><a href="{{ url_for('pages', page='results') }}">Results</a></li>
-            <li><a href="{{ url_for('pages', page='model') }}">Model</a></li>
-            <li><a href="{{ url_for('pages', page='human-practices') }}">Human Practices</a></li>
-          </ul>
+      <div>
+        <h2>Lab</h2>
+        <a href="{{ url_for('pages', page='experiments') }}">Experiments</a>
+        <a href="{{ url_for('pages', page='model') }}">Model</a>
+        <a href="{{ url_for('pages', page='notebook') }}">Notebook</a>
       </div>
-      <div class="col-lg-3 col-xs-12">
-        <h4 class="mt-lg-0 mt-sm-3 mb-3">Contact</h4>
-        <p class="mb-0">Dalian University of Technology, China</p>
-        <p class="mb-0">Email: coming soon</p>
+      <div>
+        <h2>People</h2>
+        <a href="{{ url_for('pages', page='human-practices') }}">Human Practices</a>
+        <a href="{{ url_for('pages', page='education') }}">Education</a>
+        <a href="{{ url_for('pages', page='team') }}">Team</a>
+      </div>
+      <div>
+        <h2>Team contact</h2>
+        <p>Contact details will be published by the team.</p>
       </div>
     </div>
-    <hr />
-    <!-- The following MUST be on every page: license information and link to the repository on gitlab.igem.org -->
-    <div class="row mt-4">
-      <div class="col">
-        <p class="mb-0"><small>© 2026 - Content on this site is licensed under a <a class="subfoot" href="https://creativecommons.org/licenses/by/4.0/" rel="license">Creative Commons Attribution 4.0 International license</a>.</small></p>
-	      <p><small>The repository used to create this website is available at <a href="https://gitlab.igem.org/2026/dut-china">gitlab.igem.org/2026/dut-china</a>.</small></p>
-      </div>
+
+    <div class="site-footer__legal">
+      <p>&copy; 2026 - Content on this site is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">Creative Commons Attribution 4.0 International license</a>.</p>
+      <p>The repository used to create this website is available at <a href="https://gitlab.igem.org/2026/dut-china">gitlab.igem.org/2026/dut-china</a>.</p>
     </div>
   </div>
 </footer>

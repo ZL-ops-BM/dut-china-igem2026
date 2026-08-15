@@ -1,86 +1,58 @@
-<nav class="navbar navbar-expand-lg fixed-top">
-  <div class="container">
+<header class="site-header" data-site-header>
+  <div class="site-header__inner">
+    <a class="site-brand" href="{{ url_for('home') }}" aria-label="DUT-China home">
+      <span class="site-brand__mark" aria-hidden="true"><span></span><span></span></span>
+      <span>DUT-CHINA</span>
+      <small>2026</small>
+    </a>
 
-    <!-- TEAM NAME -->
-    <a class="navbar-brand" href="{{ url_for('home') }}"><span class="brand-accent">DUT</span>-China</a>
-
-    <!-- SMALL SCREEN MENU ICON -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button class="nav-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" data-nav-toggle>
+      <span class="nav-toggle__label">Menu</span>
+      <span class="nav-toggle__icon" aria-hidden="true"><i></i><i></i></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto">
-
-        <!-- HOME -->
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('home') }}">Home</a>
-        </li>
-
-        <!-- TEAM -->
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('pages', page='team') }}">Team</a>
-        </li>
-
-        <!-- PROJECT -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbar-project" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Project
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbar-project">
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='description') }}">Description <span class="nav-tagline">What we build &amp; why</span></a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='engineering') }}">Engineering <span class="nav-tagline">Design · Build · Test · Learn</span></a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='results') }}">Results <span class="nav-tagline">Data &amp; evidence</span></a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='contribution') }}">Contribution <span class="nav-tagline">For the iGEM community</span></a></li>
+    <nav class="site-navigation" id="site-navigation" aria-label="Primary navigation" data-nav-panel>
+      <ul class="site-navigation__list">
+        <li><a class="nav-link" href="{{ url_for('home') }}" data-nav-link>Home</a></li>
+        <li class="nav-group" data-nav-group>
+          <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-project-menu" data-nav-menu-button>Project <span aria-hidden="true">+</span></button>
+          <ul class="nav-submenu" id="nav-project-menu">
+            <li><a href="{{ url_for('pages', page='description') }}"><span>Description</span><small>Why this challenge matters</small></a></li>
+            <li><a href="{{ url_for('pages', page='engineering') }}"><span>Engineering</span><small>Design, build, test, learn</small></a></li>
+            <li><a href="{{ url_for('pages', page='results') }}"><span>Results</span><small>Evidence and reflection</small></a></li>
+            <li><a href="{{ url_for('pages', page='contribution') }}"><span>Contribution</span><small>Work others can build on</small></a></li>
           </ul>
         </li>
-
-        <!-- WET LAB -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbar-wet-lab" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Wet Lab
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbar-wet-lab">
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='experiments') }}">Experiments <span class="nav-tagline">Materials &amp; methods</span></a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='notebook') }}">Notebook <span class="nav-tagline">Logs &amp; protocols</span></a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='measurement') }}">Measurement <span class="nav-tagline">Characterizing parts</span></a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='alternative-platform') }}">Alternative Platform <span class="nav-tagline">Beyond the chassis</span></a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='safety-and-security') }}">Safety and Security <span class="nav-tagline">Responsible research</span></a></li>
+        <li class="nav-group" data-nav-group>
+          <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-wetlab-menu" data-nav-menu-button>Wet Lab <span aria-hidden="true">+</span></button>
+          <ul class="nav-submenu" id="nav-wetlab-menu">
+            <li><a href="{{ url_for('pages', page='experiments') }}"><span>Experiments</span><small>Methods and protocols</small></a></li>
+            <li><a href="{{ url_for('pages', page='notebook') }}"><span>Notebook</span><small>A season in progress</small></a></li>
+            <li><a href="{{ url_for('pages', page='measurement') }}"><span>Measurement</span><small>How evidence is collected</small></a></li>
+            <li><a href="{{ url_for('pages', page='alternative-platform') }}"><span>Alternative Platform</span><small>Beyond standard hosts</small></a></li>
+            <li><a href="{{ url_for('pages', page='safety-and-security') }}"><span>Safety &amp; Security</span><small>Responsible by design</small></a></li>
           </ul>
         </li>
-
-        <!-- DRY LAB -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbar-dry-lab" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dry Lab
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbar-dry-lab">
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='model') }}">Model <span class="nav-tagline">In silico predictions</span></a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='software') }}">Software <span class="nav-tagline">Tools we built</span></a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='hardware') }}">Hardware <span class="nav-tagline">Devices &amp; automation</span></a></li>
+        <li class="nav-group" data-nav-group>
+          <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-drylab-menu" data-nav-menu-button>Dry Lab <span aria-hidden="true">+</span></button>
+          <ul class="nav-submenu" id="nav-drylab-menu">
+            <li><a href="{{ url_for('pages', page='model') }}"><span>Model</span><small>Assumptions to insight</small></a></li>
+            <li><a href="{{ url_for('pages', page='software') }}"><span>Software</span><small>Tools for biology</small></a></li>
+            <li><a href="{{ url_for('pages', page='hardware') }}"><span>Hardware</span><small>Making experiments tangible</small></a></li>
           </ul>
         </li>
-
-        <!-- ENGAGEMENT -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbar-engagement" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Engagement
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbar-engagement">
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='entrepreneurship') }}">Entrepreneurship <span class="nav-tagline">From lab to venture</span></a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='human-practices') }}">Human Practices <span class="nav-tagline">Insights that shape us</span></a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='education') }}">Education <span class="nav-tagline">Inspiring the community</span></a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='inclusivity') }}">Inclusivity <span class="nav-tagline">Science for everyone</span></a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='sustainability') }}">Sustainability <span class="nav-tagline">Long-term impact</span></a></li>
+        <li class="nav-group" data-nav-group>
+          <button class="nav-menu-button" type="button" aria-expanded="false" aria-controls="nav-engagement-menu" data-nav-menu-button>Engagement <span aria-hidden="true">+</span></button>
+          <ul class="nav-submenu nav-submenu--end" id="nav-engagement-menu">
+            <li><a href="{{ url_for('pages', page='human-practices') }}"><span>Human Practices</span><small>Listening changes design</small></a></li>
+            <li><a href="{{ url_for('pages', page='education') }}"><span>Education</span><small>Science as a dialogue</small></a></li>
+            <li><a href="{{ url_for('pages', page='entrepreneurship') }}"><span>Entrepreneurship</span><small>From idea to application</small></a></li>
+            <li><a href="{{ url_for('pages', page='inclusivity') }}"><span>Inclusivity</span><small>Access shapes participation</small></a></li>
+            <li><a href="{{ url_for('pages', page='sustainability') }}"><span>Sustainability</span><small>Designed for the long term</small></a></li>
           </ul>
         </li>
-
-        <!-- TOP-LEVEL CTA (WageningenUR-style) -->
-        <li class="nav-item ms-lg-2 align-self-lg-center">
-          <a class="btn btn-accent btn-sm nav-cta" href="{{ url_for('pages', page='description') }}">Explore Project</a>
-        </li>
-
+        <li><a class="nav-link" href="{{ url_for('pages', page='team') }}" data-nav-link>Team</a></li>
       </ul>
-    </div>
+    </nav>
   </div>
-</nav>
+</header>

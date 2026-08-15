@@ -1,125 +1,66 @@
 {% extends "layout.html" %}
 
 {% block title %}Home{% endblock %}
+{% block body_class %}home-page{% endblock %}
 
-{% block hero_title %}DUT-China · iGEM 2026{% endblock %}
-
-{% block kicker %}Synthetic Biology · iGEM 2026{% endblock %}
-
-{% block lead %}
-DUT-China 2026 — a synthetic biology project from Dalian University of Technology.
-Problem, solution, and evidence will be documented here as the season progresses.
-{% endblock %}
-
-{% block hero_cta %}
-<a class="btn btn-accent me-2" href="{{ url_for('pages', page='description') }}">Explore the Project</a>
-<a class="btn btn-outline-accent" href="{{ url_for('pages', page='team') }}">Meet the Team</a>
+{% block hero %}
+<section class="home-hero" aria-labelledby="home-title" data-motion="hero">
+  <canvas class="home-hero__canvas" data-motion="hero-particles" aria-hidden="true"></canvas>
+  <div class="home-hero__measure" aria-hidden="true"><span>01</span><span>DUT / BIO</span><span>2026</span></div>
+  <div class="home-hero__orbit home-hero__orbit--one" aria-hidden="true"></div>
+  <div class="home-hero__orbit home-hero__orbit--two" aria-hidden="true"></div>
+  <div class="site-shell home-hero__inner">
+    <p class="home-hero__coordinate" data-hero-reveal>38.9140 N / 121.6147 E</p>
+    <h1 id="home-title" aria-label="Build a living answer."><span data-hero-reveal>Build a</span><span class="home-hero__accent" data-hero-reveal>living</span><span data-hero-reveal>answer.</span></h1>
+    <div class="home-hero__summary" data-hero-reveal>
+      <p>We use engineering biology to understand complex challenges, design with evidence, and learn in public.</p>
+      <a class="action-link" href="#approach">Explore our approach <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+  <a class="home-hero__scroll" href="#approach"><span>Scroll to explore</span><i aria-hidden="true"></i></a>
+</section>
 {% endblock %}
 
 {% block page_content %}
-
-<div class="bd-callout bd-callout-warning">
-  <h4>Under Construction</h4>
-  <p>This wiki is in its early stage. Navigation, layout, and the dark scientific theme are live; project content, data, and visual assets will be added by the team in the coming weeks.</p>
-</div>
-
-<div class="tone-block tone-coral mt-5">
-  <div class="section-head">
-    <span class="section-index">01</span>
-    <h2>Problem</h2>
-    <hr />
-  </div>
-  <p class="mb-0">Our project tackles a real-world challenge. <span class="text-muted">[Problem statement pending — team materials will be provided.]</span></p>
-</div>
-
-<div class="tone-block tone-cyan mt-4">
-  <div class="section-head">
-    <span class="section-index">02</span>
-    <h2>Solution</h2>
-    <hr />
-  </div>
-  <p class="mb-0">We are engineering biology to address it. <span class="text-muted">[Solution description pending — team materials will be provided.]</span></p>
-</div>
-
-<div class="tone-block tone-green mt-4">
-  <div class="section-head">
-    <span class="section-index">03</span>
-    <h2>Evidence</h2>
-    <hr />
-  </div>
-  <p class="mb-0">Experiments, models, and human practices will be shared with full traceability — no data is invented before it exists. <span class="text-muted">[Results pending.]</span></p>
-</div>
-
-<div class="tone-block tone-violet mt-4">
-  <div class="section-head">
-    <span class="section-index">04</span>
-    <h2>Explore</h2>
-    <hr />
-  </div>
-  <p class="mb-0">Jump straight into the sections judges and visitors look at first.</p>
-</div>
-
-<div class="row g-4">
-  <div class="col-md-6 col-lg-4">
-    <div class="card h-100">
-      <div class="card-body">
-        <span class="card-tag">Project</span>
-        <h5 class="card-title mt-2">Description</h5>
-        <p class="card-text text-muted">What we build and why.</p>
-        <a class="btn btn-outline-accent btn-sm" href="{{ url_for('pages', page='description') }}">Open</a>
-      </div>
+<section class="story-section" id="approach" data-reveal="section">
+  <div class="site-shell">
+    <div class="section-heading">
+      <p class="section-index">01 / PROCESS</p>
+      <h2>From question<br>to <em>impact.</em></h2>
+      <p>A transparent engineering process keeps every decision connected to evidence.</p>
     </div>
+    <ol class="process-rail" data-motion="process-rail">
+      <li class="process-step" tabindex="0" data-process-step><span class="process-step__number">01</span><div><h3>Challenge</h3><p>Frame the problem before reaching for a solution.</p></div></li>
+      <li class="process-step" tabindex="0" data-process-step><span class="process-step__number">02</span><div><h3>Design</h3><p>Turn questions into testable biological systems.</p></div></li>
+      <li class="process-step" tabindex="0" data-process-step><span class="process-step__number">03</span><div><h3>Test</h3><p>Let careful measurements challenge every assumption.</p></div></li>
+      <li class="process-step" tabindex="0" data-process-step><span class="process-step__number">04</span><div><h3>Reflect</h3><p>Use evidence and dialogue to decide what comes next.</p></div></li>
+      <li class="process-rail__line" data-process-line aria-hidden="true" role="presentation"></li>
+    </ol>
   </div>
-  <div class="col-md-6 col-lg-4">
-    <div class="card h-100">
-      <div class="card-body">
-        <span class="card-tag">Project</span>
-        <h5 class="card-title mt-2">Engineering</h5>
-        <p class="card-text text-muted">Design · Build · Test · Learn cycles.</p>
-        <a class="btn btn-outline-accent btn-sm" href="{{ url_for('pages', page='engineering') }}">Open</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6 col-lg-4">
-    <div class="card h-100">
-      <div class="card-body">
-        <span class="card-tag">Project</span>
-        <h5 class="card-title mt-2">Results</h5>
-        <p class="card-text text-muted">Data and evidence.</p>
-        <a class="btn btn-outline-accent btn-sm" href="{{ url_for('pages', page='results') }}">Open</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6 col-lg-4">
-    <div class="card h-100">
-      <div class="card-body">
-        <span class="card-tag">Dry Lab</span>
-        <h5 class="card-title mt-2">Model</h5>
-        <p class="card-text text-muted">In silico predictions.</p>
-        <a class="btn btn-outline-accent btn-sm" href="{{ url_for('pages', page='model') }}">Open</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6 col-lg-4">
-    <div class="card h-100">
-      <div class="card-body">
-        <span class="card-tag">Engagement</span>
-        <h5 class="card-title mt-2">Human Practices</h5>
-        <p class="card-text text-muted">Insights that shape our project.</p>
-        <a class="btn btn-outline-accent btn-sm" href="{{ url_for('pages', page='human-practices') }}">Open</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6 col-lg-4">
-    <div class="card h-100">
-      <div class="card-body">
-        <span class="card-tag">Team</span>
-        <h5 class="card-title mt-2">Team</h5>
-        <p class="card-text text-muted">Meet the people behind the project.</p>
-        <a class="btn btn-outline-accent btn-sm" href="{{ url_for('pages', page='team') }}">Open</a>
-      </div>
-    </div>
-  </div>
-</div>
+</section>
 
+<section class="wiki-section" data-reveal="section">
+  <div class="site-shell">
+    <div class="section-heading section-heading--row"><div><p class="section-index">02 / INDEX</p><h2>Explore the wiki.</h2></div><p>Move through the project by the questions you want to answer.</p></div>
+    <nav class="wiki-index" aria-label="Explore wiki sections">
+      <a href="{{ url_for('pages', page='description') }}" data-wiki-link><span class="wiki-index__number">01</span><strong>Project</strong><small>Context, design and evidence</small><i aria-hidden="true">&nearr;</i></a>
+      <a href="{{ url_for('pages', page='experiments') }}" data-wiki-link><span class="wiki-index__number">02</span><strong>Wet Lab</strong><small>Experiments, protocols and safety</small><i aria-hidden="true">&nearr;</i></a>
+      <a href="{{ url_for('pages', page='model') }}" data-wiki-link><span class="wiki-index__number">03</span><strong>Dry Lab</strong><small>Models, software and hardware</small><i aria-hidden="true">&nearr;</i></a>
+      <a href="{{ url_for('pages', page='human-practices') }}" data-wiki-link><span class="wiki-index__number">04</span><strong>Engagement</strong><small>People, responsibility and impact</small><i aria-hidden="true">&nearr;</i></a>
+    </nav>
+  </div>
+</section>
+
+<section class="team-section" data-reveal="section">
+  <div class="site-shell team-section__grid">
+    <div class="team-visual" role="img" aria-label="Abstract placeholder for a future DUT-China team photograph"><span class="team-visual__cell team-visual__cell--one"></span><span class="team-visual__cell team-visual__cell--two"></span><span class="team-visual__cell team-visual__cell--three"></span><span class="team-visual__label">TEAM VISUAL / UPLOAD PENDING</span></div>
+    <div class="team-section__content"><p class="section-index">03 / PEOPLE</p><h2>A team<br>in <em>motion.</em></h2><p>We document the work, the questions, and the decisions that shape our season.</p><div class="team-section__links"><a class="text-link" href="{{ url_for('pages', page='team') }}">Meet the team <span aria-hidden="true">&rarr;</span></a><a class="text-link" href="{{ url_for('pages', page='notebook') }}">Open the notebook <span aria-hidden="true">&rarr;</span></a></div></div>
+  </div>
+</section>
+{% endblock %}
+
+{% block page_scripts %}
+<script src="{{ url_for('static', filename='vendor/gsap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/ScrollTrigger.min.js') }}"></script>
+<script src="{{ url_for('static', filename='home.js') }}" defer></script>
 {% endblock %}
