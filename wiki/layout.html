@@ -14,6 +14,19 @@
   <title>{% block title %}{% endblock %} | DUT-China - iGEM 2026</title>
 </head>
 <body class="{% block body_class %}content-page{% endblock %}">
+  <div class="dna-loader" id="dna-loader" role="status" aria-label="Loading">
+    <div class="dna-loader__inner">
+      <div class="dna-loader__bases" aria-hidden="true">
+        <span class="dna-loader__base" style="--order:4">A</span>
+        <span class="dna-loader__base" style="--order:3">G</span>
+        <span class="dna-loader__base" style="--order:2">C</span>
+        <span class="dna-loader__base" style="--order:1">T</span>
+        <span class="dna-loader__base" style="--order:0">U</span>
+      </div>
+      <p class="dna-loader__caption">Loading</p>
+    </div>
+  </div>
+
   <a class="skip-link" href="#main-content">Skip to main content</a>
   {% include 'menu.html' %}
 

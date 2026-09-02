@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DNA Loading Animation Preview</title>
+<style>
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Poppins"), url("fonts/poppins-700.woff2") format("woff2");
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background: #09100f;
+  color: #c7ff4f;
+  font-family: "Poppins", "IBM Plex Sans", Arial, sans-serif;
+  overflow: hidden;
+}
+
+.dna-loader-preview {
+  display: grid;
+  justify-items: center;
+  gap: 22px;
+  text-align: center;
+}
+
+.dna-loader-preview__bases {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 3vw, 42px);
+}
+
+.dna-loader-preview__base {
+  font-size: clamp(3.2rem, 11vw, 7rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .02em;
+  color: #c7ff4f;
+  text-shadow: 0 0 34px rgba(199, 255, 79, .28);
+  opacity: 0;
+  transform: translateX(130px) rotate(5deg);
+  animation: base-loop 2400ms var(--ease-out) infinite;
+  animation-delay: calc(var(--order) * 90ms);
+}
+
+.dna-loader-preview__caption {
+  margin: 0;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: caption-in 400ms ease 1.35s infinite;
+}
+
+@keyframes base-loop {
+  0%   { opacity: 0; transform: translateX(130px) rotate(5deg); }
+  18%  { opacity: 1; transform: translateX(0) rotate(0); }
+  78%  { opacity: 1; transform: translateX(0) rotate(0); }
+  100% { opacity: 0; transform: translateX(-40px) rotate(-3deg); }
+}
+
+@keyframes caption-in {
+  0%, 55% { opacity: 0; }
+  70%, 90% { opacity: .72; }
+  100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dna-loader-preview__base,
+  .dna-loader-preview__caption {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="dna-loader-preview" aria-label="DNA loading animation preview">
+    <div class="dna-loader-preview__bases" aria-hidden="true">
+      <span class="dna-loader-preview__base" style="--order:4">A</span>
+      <span class="dna-loader-preview__base" style="--order:3">G</span>
+      <span class="dna-loader-preview__base" style="--order:2">C</span>
+      <span class="dna-loader-preview__base" style="--order:1">T</span>
+      <span class="dna-loader-preview__base" style="--order:0">U</span>
+    </div>
+    <p class="dna-loader-preview__caption">Loading</p>
+  </div>
+</body>
+</html>

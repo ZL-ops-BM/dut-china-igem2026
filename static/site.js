@@ -128,6 +128,30 @@
     revealItems.forEach((item) => item.classList.add('is-visible'));
   }
 
+  const dnaLoader = document.getElementById('dna-loader');
+  if (dnaLoader) {
+    const hideLoader = () => dnaLoader.classList.add('is-hidden');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      hideLoader();
+    } else {
+      const startedAt = performance.now();
+      const hideWhenReady = () => {
+        const elapsed = performance.now() - startedAt;
+        const minVisible = 1800;
+        const wait = Math.max(0, minVisible - elapsed);
+        window.setTimeout(hideLoader, wait);
+      };
+      if (document.readyState === 'complete') {
+        hideWhenReady();
+      } else {
+        window.addEventListener('load', hideWhenReady);
+      }
+      // Safety net: never leave the loader covering the page.
+      window.setTimeout(hideLoader, 4000);
+    }
+  }
+
+
   window.addEventListener('scroll', setHeaderState, { passive: true });
   window.addEventListener('resize', () => {
     if (desktopQuery.matches && navPanel?.classList.contains('is-open')) closeNavigation({ restoreFocus: false });
